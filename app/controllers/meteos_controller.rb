@@ -1,10 +1,11 @@
 class MeteosController < ApplicationController
   before_action :set_meteo, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, only: :create
 
   # GET /meteos
   # GET /meteos.json
   def index
-    @meteos = Meteo.all
+    @meteos = Meteo.all.order(created_at: :desc)
   end
 
   # GET /meteos/1
@@ -25,11 +26,10 @@ class MeteosController < ApplicationController
   # POST /meteos.json
   def create
     @meteo = Meteo.new(meteo_params)
-
     respond_to do |format|
       if @meteo.save
         format.html { redirect_to @meteo, notice: 'Meteo was successfully created.' }
-        format.json { render :show, status: :created, location: @meteo }
+        format.json { render json: @meteo, status: :saved }
       else
         format.html { render :new }
         format.json { render json: @meteo.errors, status: :unprocessable_entity }
@@ -69,6 +69,6 @@ class MeteosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def meteo_params
-      params.fetch(:meteo, {})
+      params.require(:meteo).permit(:temperature, :pressure, :humidity)
     end
 end
