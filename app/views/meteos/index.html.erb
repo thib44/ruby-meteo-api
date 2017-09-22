@@ -18,7 +18,7 @@
         <td><%= meteo.temperature / 10.0 %></td>
         <td><%= meteo.pressure / 100.0 %></td>
         <td><%= meteo.humidity %>%</td>
-        <td><%= meteo.created_at %></td>
+        <td><%= l(meteo.created_at, format: :short) %></td>
       </tr>
     <% end %>
   </tbody>
