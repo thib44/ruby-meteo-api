@@ -1,25 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+      <h1 class="text-center">Meteos</h1>
+      <table class=table>
+        <thead>
+          <tr>
+            <th>Température</th>
+            <th>Pression</th>
+            <th>Humidité</th>
+            <th>Date</th>
+          </tr>
+        </thead>
 
-<h1>Meteos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Température</th>
-      <th>Pression</th>
-      <th>Humidité</th>
-      <th>Date</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @meteos.each do |meteo| %>
-      <tr>
-        <td><%= meteo.temperature / 10.0 %></td>
-        <td><%= meteo.pressure / 100.0 %></td>
-        <td><%= meteo.humidity %>%</td>
-        <td><%= l(meteo.created_at, format: :short) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @meteos.each do |meteo| %>
+            <tr>
+              <td><%= meteo.temperature / 10.0 %></td>
+              <td><%= meteo.pressure / 100.0 %></td>
+              <td><%= meteo.humidity %>%</td>
+              <td><%= l(meteo.created_at, format: :short) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
