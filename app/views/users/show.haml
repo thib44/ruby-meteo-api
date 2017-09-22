@@ -1,0 +1,15 @@
+.container-fluid
+  .row
+    .col-xs-12.col-sm-3.text-center
+      %h2.text-center Menu
+      %ul.nav.flex-column
+        %li.nav-item
+          = link_to('Profil', user_path(current_user), class: 'nav-link active')
+        %li.nav-item
+          = link_to('Stations meteos', '#', class: 'nav-link')
+    .col-xs-12.col-sm-9
+      = simple_form_for(current_user) do |f|
+        = f.input :email
+        = f.input :first_name
+        = f.input :last_name
+        = f.submit
