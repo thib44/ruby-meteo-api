@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :meteo_stations
   devise_for :users
   resources :meteos
   resources :users
