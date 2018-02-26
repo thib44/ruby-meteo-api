@@ -6,7 +6,7 @@ class MeteosController < ApplicationController
   # GET /meteos.json
   def index
     @meteos = Meteo.all.order(created_at: :desc)
-    @meteo = @meteos.last
+    @meteo = @meteos.first
   end
 
   # GET /meteos/1
