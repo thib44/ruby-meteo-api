@@ -2,6 +2,12 @@
   <div class="row">
     <div class="col-xs-12 col-md-12">
       <h1 class="text-center">Meteos</h1>
+      <div class="text-center big-text">
+        Température : <%= @meteo.temperature / 10.0 %> <br>
+        Pression : <%= @meteo.pressure / 100.0 %> <br>
+        Humidité : <%= @meteo.humidity %> <br>
+      </div>
+
       <table class=table>
         <thead>
           <tr>
