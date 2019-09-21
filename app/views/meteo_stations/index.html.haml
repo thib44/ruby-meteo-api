@@ -1,0 +1,19 @@
+%h1 Listing meteo_stations
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @meteo_stations.each do |meteo_station|
+      %tr
+        %td= link_to 'Show', meteo_station
+        %td= link_to 'Edit', edit_meteo_station_path(meteo_station)
+        %td= link_to 'Destroy', meteo_station, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Meteo station', new_meteo_station_path
